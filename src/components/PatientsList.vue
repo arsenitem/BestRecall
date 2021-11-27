@@ -122,6 +122,7 @@ export default {
     },
     mounted() {
         this.patientsFilter = this.patients
+        console.log("mounted")
     }
 }
 </script>
