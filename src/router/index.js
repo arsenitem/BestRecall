@@ -6,26 +6,30 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: "/",
+        redirect: { name: 'Login' }
+    },
+    {
+        path: "/BestRecall/login",
         name: "Login",
         component: () => import("../views/Login.vue")
     },
     {
-        path: "/home",
+        path: "/BestRecall/home",
         name: "Home",
         component: () => import("../views/Home.vue"),
         children: [
             {
-                path: "patients",
+                path: "/BestRecall/patients",
                 name: "Patients",
                 component: () => import("../views/Patients.vue")
             },
             {
-                path: "card",
+                path: "/BestRecall/card",
                 name: "Card",
                 component: () => import("../views/Card.vue")
             },
             {
-                path: "history",
+                path: "/BestRecall/history",
                 name: "History",
                 component: () => import("../views/History.vue")
             }
