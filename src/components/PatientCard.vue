@@ -31,7 +31,6 @@
                   <b-spinner variant="primary" class="spinner"></b-spinner>
                 </b-col>
               </b-row>
-              
             </div>
             <div v-if="hasResult">
               <b-card title="Результат" style="margin-top: 20px">
@@ -142,7 +141,7 @@ export default {
         input: this.anamnesText,
       });
       this.hasResult = true;
-       this.loading = false;
+      this.loading = false;
     },
     submit() {
       this.$ncformValidate("your-form-name").then((data) => {
@@ -160,7 +159,7 @@ export default {
               schemeData: this.patientData,
             });
           }
-          this.$router.push({ name: 'Home' })
+          this.$router.push({ name: "Home" });
         }
       });
     },
