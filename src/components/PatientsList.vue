@@ -37,7 +37,9 @@
             </b-card>
            
         </b-tab>
-        <b-tab title="Новый пациент"><p>I'm the second tab</p></b-tab>
+        <b-tab title="Новый пациент" @click="onNewPatientClick">
+                <!-- <Card/> -->
+        </b-tab>
     </b-tabs>
       <!-- <div v-for="patient in patients" :key="patient.id">
           <PatientItem :patient="patient"/>
@@ -46,10 +48,13 @@
 </template>
 
 <script>
-// import PatientItem from "./PatientItem.vue"
 export default {
     components: {
-        // PatientItem
+    },
+    computed: {
+        patients() {
+            return this.$store.getters["patients"]
+        }
     },
     data() {
         return {
@@ -64,49 +69,14 @@ export default {
               { key: 'actions',  label: '', },
             ],
             patientsFilter: [],
-            patients: [
-                {
-                    image: "",
-                    id: 1,
-                    name: "Иванов Иван Инванович",
-                    age: 33,
-                    diagnosis: "Двусторонняя пневмония",
-                    lastUpdate: "22.11.2021",
-                    riskLevel: 3
-                },
-                {
-                    image: "",
-                    id: 2,
-                    name: "Петрова Мария Сергеевна",
-                    age: 33,
-                     diagnosis: "Двусторонняя пневмония",
-                    lastUpdate: "19.11.2021",
-                     riskLevel: 2
-                },
-                {
-                    image: "",
-                    id: 3,
-                    name: "Петряков Игор Александрович",
-                    age: 33,
-                     diagnosis: "Двусторонняя пневмония",
-                    lastUpdate: "23.11.2021",
-                      riskLevel: 1
-                },
-                {
-                    image: "",
-                    id: 4,
-                    name: "Петряков Игор Александрович",
-                    age: 33,
-                     diagnosis: "Двусторонняя пневмония",
-                    lastUpdate: "23.11.2021",
-                    riskLevel: 3
-                }
-            ],
         }
     },
      methods: {
         onMedLinkClick(data) {
             this.$router.push({ name: 'Card', query: { patientId: data.item.id } })
+        },
+        onNewPatientClick() {
+            this.$router.push({ name: 'Card', query: { patientId: "new" } })
         }
     },
     watch: {

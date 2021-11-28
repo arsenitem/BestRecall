@@ -7,7 +7,7 @@
           <b-form-input placeholder="Логин" v-model="user"></b-form-input>
         </b-row>
         <b-row style="margin-top:20px">
-          <b-form-input placeholder="Пароль"></b-form-input>
+          <b-form-input placeholder="Пароль" type="password"></b-form-input>
         </b-row>
         <b-row style="margin-top:20px"> 
           <b-button variant="outline-primary" @click="onLoginClick">Войти</b-button>

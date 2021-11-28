@@ -1,7 +1,7 @@
 <template>
  <b-navbar toggleable="lg" type="dark" variant="info">
      <b-container>
-         <b-navbar-brand href="#">BestRecall</b-navbar-brand>
+         <b-navbar-brand href="#" @click="homeClick">BestRecall</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -29,7 +29,7 @@
             <em>{{user}}</em>
           </template>
           <b-dropdown-item href="#">Профиль</b-dropdown-item>
-          <b-dropdown-item href="#">Выход</b-dropdown-item>
+          <b-dropdown-item href="#" @click="logout">Выход</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -50,6 +50,12 @@ export default {
         },
         historyClick() {
             this.$router.push({ name: 'History'})
+        },
+        homeClick() {
+            this.$router.push({name: 'Home'})
+        },
+        logout() {
+            this.$router.push({name: 'Login'})
         }
     }
 }

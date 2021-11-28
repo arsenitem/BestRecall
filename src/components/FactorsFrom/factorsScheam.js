@@ -1,93 +1,34 @@
 export default {
     type: "object",
         properties: {
-          demo: {
+          name: {
             type: "string",
             ui: {
-              columns: 12,
-              label: "test-input",
-              placeholder: "your paceholder",
-              itemClass: "ml-3",
-              readonly: false,
+              columns: 6,
+              label: "ФИО Пациента",
+              placeholder: "ФИО",
               widgetConfig: {
-                size: "md",
-                appendIcon: "arrow-up",
-                prependIcon: null,
-                showState: true, // flag indicates whether to show validation state in componentб
-              }
+                showState: true,
+              },
             },
+           
             rules: {
               required: {
                 value: true, // The value passed to the validation rule
                 errMsg: "Требуется заполнить данное поле", // Error message
-                options: {
-                  // Rule options
-                  delay: 300, // Delayed verification time (ms)
-                  delayMsg: "Checking..." // Prompt for delayed verification
-                }
               },
-              pattern: {
-                value: ".{5,}",
-                errMsg: "minimum 5"
-              },
-              email: {
-                value: true,
-                errMsg: "email required"
-              }
             },
             value: ""
-          },
-          age: {
-            type: "number", //may be integer
-            ui: {
-              columns: 3,
-              label: "numeric input",
-              placeholder: "Last name",
-              widgetConfig: {
-                showState: true
-              }
-            },
-            rules: {
-              maximum: {
-                value: 60,
-                errMsg: "too much"
-              },
-              minimum: {
-                value: 3,
-                errMsg: "too smll"
-              }
-            },
-            value: 21
-          },
-          file: {
-            type: "array",
-            ui: {
-              columns: 3,
-              label: "file-upload",
-              placeholder: "file",
-              widget: "upload",
-              widgetConfig: {
-                multiple: true,
-                showState: true,
-              }
-            },
-            rules: {
-              required: {
-                value: true, // The value passed to the validation rule
-                errMsg: "yep it is required!" // Error message
-              }
-            },
-          },
+          }, 
           date: {
             type: "date",
             ui: {
               columns: 3,
-              label: "datepicker",
-              placeholder: "date",
+              label: "Дата рождения",
+              placeholder: "",
               widget: "datepicker",
               widgetConfig: {
                 showState: true,
-                min: new Date(),
                 format: "DD.MM.YYYY",
                 allowInput: true,
               }
@@ -95,123 +36,184 @@ export default {
             rules: {
               required: {
                 value: true,
-                errMsg: "yep it is required!" 
+                errMsg: "Необходимо указать" 
               }
             },
-            value: new Date().toISOString()
+            value: null
           },
-          select: {
-            type: "string",
-            ui: {
-              columns: 3,
-              itemClass: "",
-              label: "select",
-              placeholder: "date",
-              widget: "select",
-              widgetConfig: {
-                multiple: false,
-                options: [
-                  { value: "a", text: "This is First option" },
-                  { value: "b", text: "Default Selected Option" },
-                  { value: "c", text: "This is another option" },
-                  { value: "d", text: "This one is disabled", disabled: true },
-                  { value: "e", text: "This is option e" }
-                ],
-                select_size: 1
-              }
-            },
-            value: "b"
-          },
-          textarea: {
-            type: "string",
-            ui: {
-              columns: 3,
-              label: "textarea",
-              placeholder: "your text here",
-              widget: "textarea",
-              widgetConfig: {}
-            }
-          },
-          bool: {
-            type: "boolean",
-            value: true,
-            ui: {
-              columns: 3
-            }
-          },
-          manyradio: {
+          sex: {
             type: "number",
             ui: {
+              label: "Пол",
               columns: 3,
               widget: "radio",
               widgetConfig: {
                 name: "manyrad",
-                stacked: true,
                 options: [
                   {
-                    value: 1,
-                    text: "orange"
+                    value: "М",
+                    text: "М"
                   },
                   {
-                    value: 2,
-                    text: "red"
-                  },
-                  {
-                    value: 3,
-                    text: "blue"
+                    value: "Ж",
+                    text: "Ж"
                   }
                 ]
               }
             }
           },
-          checkbox: {
-            type: "array",
+          email: {
+            type: "string",
             ui: {
-              itemClass: "",
-              columns: 3
+              columns: 6,
+              label: "Email",
+              placeholder: "",
+              widgetConfig: {
+                showState: true,
+              }
             },
-            items: {
-              type: "boolean",
-              ui: {
-                label: "checkbox",
-                columns: 3
+            rules: {
+              required: {
+                value: true,
+                errMsg: "Необходимо указать" 
+              },
+              email: {
+                value: true,
+                errMsg: "Неверный email" 
               }
-            }
+            },
+            value: null
           },
-          manychecbox: {
-            type: "number",
+          phone: {
+            type: "string",
             ui: {
-              columns: 3,
-              itemClass: "",
-              widget: "checkbox",
+              columns: 6,
+              label: "Номер телефона",
+              placeholder: "",
               widgetConfig: {
-                name: "manycheck",
-                enumSource: [
-                  {
-                    value: 1,
-                    text: "orange"
-                  },
-                  {
-                    value: 2,
-                    text: "red"
-                  },
-                  {
-                    value: 3,
-                    text: "blue"
-                  }
-                ]
+                showState: true,
               }
-            }
+            },
+            rules: {
+              required: {
+                value: true,
+                errMsg: "Необходимо указать" 
+              },
+            },
+            value: null
           },
-          btn: {
+          snils: {
+            type: "string",
             ui: {
-              columns: 3,
-              widget: "button",
+              columns: 6,
+              label: "CНИЛС",
+              placeholder: "",
               widgetConfig: {
-                btnClickAction: "dx: () => console.log('btn action')"
+                showState: true,
               }
-            }
-          }
+            },
+            rules: {
+              required: {
+                value: true,
+                errMsg: "Необходимо указать" 
+              },
+            },
+            value: null
+          },
+          oms: {
+            type: "string",
+            ui: {
+              columns: 6,
+              label: "Полис ОМС",
+              placeholder: "",
+              widgetConfig: {
+                showState: true,
+              }
+            },
+            rules: {
+              required: {
+                value: true,
+                errMsg: "Необходимо указать" 
+              },
+            },
+            value: null
+          },
+          reg_address: {
+            type: "string",
+            ui: {
+              columns: 6,
+              label: "Адрес регистрации",
+              placeholder: "",
+              widget: "textarea",
+              widgetConfig: {
+                showState: true,
+              }
+            },
+            value: null
+          },
+          fact_address: {
+            type: "string",
+            ui: {
+              columns: 6,
+              label: "Адрес места жительства",
+              placeholder: "",
+              widget: "textarea",
+              widgetConfig: {
+                showState: true,
+              }
+            },
+            value: null
+          },
+          invalid: {
+            type: "string",
+            ui: {
+              columns: 12,
+              label: "Инвалидность",
+              placeholder: "",
+              widgetConfig: {
+                showState: true,
+              }
+            },
+            value: null
+          },
+          work_place: {
+            type: "string",
+            ui: {
+              columns: 6,
+              label: "Место работы",
+              placeholder: "",
+              widgetConfig: {
+                showState: true,
+              }
+            },
+            value: null
+          },
+          work_pos: {
+            type: "string",
+            ui: {
+              columns: 6,
+              label: "Должность",
+              placeholder: "",
+              widgetConfig: {
+                showState: true,
+              }
+            },
+            value: null
+          },
+          diagnosis: {
+            type: "string",
+            ui: {
+              columns: 12,
+              label: "Клинический диагноз",
+              placeholder: "",
+              widget: "textarea",
+              widgetConfig: {
+                showState: true,
+              }
+            },
+            value: null
+          },
+          
         },
         value: {},
 }

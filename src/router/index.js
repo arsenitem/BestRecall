@@ -9,27 +9,28 @@ const routes = [
         redirect: { name: 'Login' }
     },
     {
-        path: "/BestRecall/login",
+        path: "/login",
         name: "Login",
         component: () => import("../views/Login.vue")
     },
     {
-        path: "/BestRecall/home",
+        path: "/home",
         name: "Home",
+        redirect: { name: 'Patients' },
         component: () => import("../views/Home.vue"),
         children: [
             {
-                path: "/BestRecall/patients",
+                path: "patients",
                 name: "Patients",
                 component: () => import("../views/Patients.vue")
             },
             {
-                path: "/BestRecall/card",
+                path: "card",
                 name: "Card",
                 component: () => import("../views/Card.vue")
             },
             {
-                path: "/BestRecall/history",
+                path: "history",
                 name: "History",
                 component: () => import("../views/History.vue")
             }
@@ -38,7 +39,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-    mode: "history",
+    mode: "hash",
     routes
 })
 
