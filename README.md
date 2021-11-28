@@ -1,5 +1,7 @@
 # bestrecall
 
+Приложение доступно по адресу https://arsenitem.github.io/BestRecall/
+
 ## Project setup
 ```
 npm install
